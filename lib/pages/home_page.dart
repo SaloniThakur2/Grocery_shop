@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_shop/components/model/cart_model.dart';
 import 'package:provider/provider.dart';
-
 import '../components/grocery_item_tile.dart';
 import 'cart_page.dart';
 
@@ -55,7 +54,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Text(
             "Let's order fresh items for you",
-            style: GoogleFonts.notoSerif(
+            style: TextStyle(color: Colors.black,
               fontSize: 36,
               fontWeight: FontWeight.bold,
             ),
@@ -89,8 +88,10 @@ class HomePage extends StatelessWidget {
         child: Consumer<CartModel>(
           builder: (context, value, child) {
             return GridView.builder(
+               padding: const EdgeInsets.all(12),
+                  physics: const NeverScrollableScrollPhysics(),
              itemCount: value.shopItems.length,
-             padding: EdgeInsets.all(12),
+             
              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               
               crossAxisCount: 2,
@@ -102,7 +103,10 @@ class HomePage extends StatelessWidget {
               itemPrice: value.shopItems[index][1],
               imagePath: value.shopItems[index][2],
               color: value.shopItems[index][3],
-              onPressed: () {},
+              onPressed: () {
+                Provider.of<CartModel>(context, listen: false)
+                .addItemToCart(index);
+              },
             );
             },
           );

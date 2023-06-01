@@ -6,17 +6,19 @@ class CartModel extends ChangeNotifier {
   final List _shopItems = [
     //[ itemName, itemPrice, imagePath, color ]
     ["Carrot", "4.00", "lib/images/carrot.png", Colors.orange],
-    ["Avocado", "4.00", "lib/images/avocado.png", Colors.green],
-    ["Chicken", "4.00", "lib/images/chicken-leg.png", Colors.brown],
-    ["Banana", "4.00", "lib/images/banana.png", Colors.yellow],
+    ["Avocado", "2.00", "lib/images/avocado.png", Colors.green],
+    ["Chicken", "12.80", "lib/images/chicken-leg.png", Colors.brown],
+    ["Banana", "1.00", "lib/images/banana.png", Colors.yellow],
   ];
     
    // list of cart items
   List _cartItems = [];
 
+  get shopItems => _shopItems;
+
   get cartItems => _cartItems;
 
-  get shopItems => _shopItems;
+ 
 
   // add item to cart
   void addItemToCart(int index) {

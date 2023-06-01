@@ -33,7 +33,7 @@ class IntroPage extends StatelessWidget {
               
               "We deliver groceries at your doorstep",
               textAlign: TextAlign.center,
-              style: GoogleFonts.notoSerif(
+              style: TextStyle(color: Colors.black,
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
                 
